@@ -3,105 +3,51 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PHCC CONNECT</title>
-
 <style>
-* {box-sizing:border-box}
-body {
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f1f5f9;
-  color:#183044;
-}
-header {
-  background:#087f69;
-  color:white;
-  padding:24px 18px;
-}
-header h1 {margin:0}
-.container {padding:18px}
-.card {
-  background:white;
-  padding:18px;
-  border-radius:12px;
-  margin-bottom:16px;
-  box-shadow:0 2px 8px #0001;
-}
-h2 {color:#087f69}
-label {
-  display:block;
-  margin-top:14px;
-  font-weight:bold;
-}
-input,select {
-  width:100%;
-  padding:13px;
-  margin-top:7px;
-  border:1px solid #ccc;
-  border-radius:7px;
-  font-size:15px;
-}
-button {
-  padding:13px;
-  border:0;
-  border-radius:7px;
-  background:#087f69;
-  color:white;
-  font-size:15px;
-  margin-top:14px;
-  cursor:pointer;
-}
-.submit {width:100%}
-.staff {
-  background:#e8f5f1;
-  padding:12px;
-  border-radius:8px;
-  margin-top:10px;
-  overflow-wrap:anywhere;
-}
-.delete {background:#b42318}
-.count {
-  font-size:30px;
-  color:#087f69;
-  font-weight:bold;
-}
-footer {
-  text-align:center;
-  padding:20px;
-  color:#64748b;
-}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:#f1f5f9;color:#183044}
+header{background:#087f69;color:white;padding:22px}
+main{padding:16px}
+.card{background:white;padding:18px;border-radius:12px;margin-bottom:16px}
+h2{color:#087f69}
+label{display:block;margin-top:13px;font-weight:bold}
+input,select{width:100%;padding:12px;margin-top:6px;border:1px solid #ccc;border-radius:7px}
+button{background:#087f69;color:white;border:0;padding:13px;border-radius:7px;margin-top:13px;cursor:pointer}
+.submit{width:100%}
+.record{background:#e8f5f1;padding:12px;border-radius:8px;margin-top:10px;white-space:pre-line}
+.count{font-size:30px;color:#087f69;font-weight:bold}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav button{flex:1}
+footer{text-align:center;padding:20px;color:#64748b}
 </style>
 </head>
-
 <body>
 
 <header>
 <h1>🏥 PHCC CONNECT</h1>
-<p>Healthcare Management System</p>
-<p>Connecting PHCC Workers and Facilities</p>
+<p>Digital Healthcare Management System</p>
+<p>Connecting Healthcare Facilities</p>
 </header>
 
-<div class="container">
-
+<main>
 <div class="card">
-<h2>Staff Dashboard</h2>
-<p>Total Registered Staff</p>
-<div class="count" id="total">0</div>
+<h2>Dashboard</h2>
+<p>Registered Staff</p>
+<div class="count" id="staffCount">0</div>
+<p>Patient Records (Demo)</p>
+<div class="count" id="patientCount">0</div>
 </div>
 
 <div class="card">
 <h2>Staff Registration</h2>
-
 <form id="staffForm">
-
-<label>Full Name / Cikakken Suna</label>
-<input id="name" required placeholder="Enter full name">
-
+<label>Full Name</label>
+<input id="staffName" required>
 <label>Staff ID</label>
-<input id="staffid" required placeholder="Enter staff ID">
-
-<label>Cadre / Matsayin Aiki</label>
+<input id="staffId" required>
+<label>Cadre</label>
 <select id="cadre" required>
 <option value="">Select Cadre</option>
 <option>CHEW</option>
@@ -110,122 +56,155 @@ footer {
 <option>Midwife</option>
 <option>Doctor</option>
 <option>Pharmacy Technician</option>
-<option>Medical Laboratory Technician</option>
 <option>Other</option>
 </select>
-
-<label>Facility / PHCC</label>
-<select id="facility" required>
+<label>Facility</label>
+<select id="staffFacility" required>
 <option value="">Select Facility</option>
 <option>PHCC 1</option>
 <option>PHCC 2</option>
 <option>PHCC 3</option>
 </select>
-
 <label>Phone Number</label>
-<input id="phone" type="tel" required placeholder="Phone number">
-
-<label>Registration Date</label>
-<input id="date" type="date" required>
-
-<button class="submit" type="submit">
-Register Staff / Yi Rajista
-</button>
-
+<input id="staffPhone" type="tel" required>
+<button class="submit">Register Staff</button>
 </form>
 </div>
 
 <div class="card">
-<h2>Registered Staff</h2>
-<div id="staffList">
-No staff registered yet.
-</div>
+<h2>Patient Registration (Demo)</h2>
+<form id="patientForm">
+<label>Age</label>
+<input id="age" type="number" min="0" max="120" required>
+<label>Gender</label>
+<select id="gender" required>
+<option value="">Select Gender</option>
+<option>Male</option>
+<option>Female</option>
+</select>
+<label>Village / Community</label>
+<input id="village" required>
+<label>PHCC Facility</label>
+<select id="patientFacility" required>
+<option value="">Select Facility</option>
+<option>PHCC 1</option>
+<option>PHCC 2</option>
+<option>PHCC 3</option>
+</select>
+<label>Service Provided</label>
+<select id="service" required>
+<option value="">Select Service</option>
+<option>OPD</option>
+<option>ANC</option>
+<option>Immunization</option>
+<option>Family Planning</option>
+<option>Child Health</option>
+<option>Health Education</option>
+<option>Other</option>
+</select>
+<label>Date of Visit</label>
+<input id="visitDate" type="date" required>
+<button class="submit">Register Patient</button>
+</form>
 </div>
 
+<div class="card">
+<h2>Patient Records</h2>
+<p>Demo records stored on this device only.</p>
+<div id="patientList">No records yet.</div>
 </div>
 
-<footer>
-PHCC CONNECT © 2026
-<br>Digital Healthcare Management
-</footer>
+<div class="card">
+<h2>Staff Records</h2>
+<div id="staffList">No staff yet.</div>
+</div>
+</main>
+
+<footer>PHCC CONNECT © 2026</footer>
 
 <script>
-let staff = JSON.parse(
- localStorage.getItem("phcc_staff") || "[]"
-);
+let staff=JSON.parse(localStorage.getItem("staffDemo")||"[]");
+let patients=JSON.parse(localStorage.getItem("patientDemo")||"[]");
 
-function displayStaff() {
- document.getElementById("total").innerText =
- staff.length;
-
- const list = document.getElementById("staffList");
-
- if(staff.length === 0) {
-   list.innerHTML = "No staff registered yet.";
-   return;
- }
-
- list.innerHTML = "";
-
- staff.forEach((person,index) => {
-   const item = document.createElement("div");
-   item.className = "staff";
-
-   const details = document.createElement("div");
-   details.innerText =
-    "Name: " + person.name +
-    "\nStaff ID: " + person.id +
-    "\nCadre: " + person.cadre +
-    "\nFacility: " + person.facility +
-    "\nPhone: " + person.phone +
-    "\nDate: " + person.date;
-
-   const del = document.createElement("button");
-   del.className = "delete";
-   del.innerText = "Delete";
-   del.onclick = function() {
-     if(confirm("Delete this staff record?")) {
-       staff.splice(index,1);
-       saveStaff();
-     }
-   };
-
-   item.appendChild(details);
-   item.appendChild(del);
-   list.appendChild(item);
- });
+function save(){
+localStorage.setItem("staffDemo",JSON.stringify(staff));
+localStorage.setItem("patientDemo",JSON.stringify(patients));
+show();
 }
 
-function saveStaff() {
- localStorage.setItem(
-   "phcc_staff",
-   JSON.stringify(staff)
- );
- displayStaff();
+function addText(parent,text){
+let p=document.createElement("p");
+p.textContent=text;
+parent.appendChild(p);
 }
 
-document.getElementById("staffForm")
-.addEventListener("submit",function(e) {
- e.preventDefault();
+function show(){
+document.getElementById("staffCount").textContent=staff.length;
+document.getElementById("patientCount").textContent=patients.length;
 
- const person = {
-  name:document.getElementById("name").value,
-  id:document.getElementById("staffid").value,
-  cadre:document.getElementById("cadre").value,
-  facility:document.getElementById("facility").value,
-  phone:document.getElementById("phone").value,
-  date:document.getElementById("date").value
- };
-
- staff.push(person);
- saveStaff();
- this.reset();
-
- alert("Staff registered successfully!");
+let sl=document.getElementById("staffList");
+sl.replaceChildren();
+staff.forEach(s=>{
+let d=document.createElement("div");
+d.className="record";
+d.textContent=s.name+" | "+s.id+" | "+s.cadre+" | "+s.facility;
+sl.appendChild(d);
 });
 
-displayStaff();
-</script>
+let pl=document.getElementById("patientList");
+pl.replaceChildren();
 
+if(!patients.length){
+pl.textContent="No records yet.";
+}
+
+patients.forEach(p=>{
+let d=document.createElement("div");
+d.className="record";
+d.textContent=
+"Patient ID: "+p.id+
+"\nAge: "+p.age+
+"\nGender: "+p.gender+
+"\nCommunity: "+p.village+
+"\nFacility: "+p.facility+
+"\nService: "+p.service+
+"\nVisit: "+p.date;
+pl.appendChild(d);
+});
+}
+
+document.getElementById("staffForm").onsubmit=function(e){
+e.preventDefault();
+staff.push({
+name:staffName.value,
+id:staffId.value,
+cadre:cadre.value,
+facility:staffFacility.value,
+phone:staffPhone.value
+});
+this.reset();
+save();
+alert("Staff registered!");
+};
+
+document.getElementById("patientForm").onsubmit=function(e){
+e.preventDefault();
+let id="PHCC-"+Date.now().toString().slice(-8);
+patients.push({
+id:id,
+age:age.value,
+gender:gender.value,
+village:village.value,
+facility:patientFacility.value,
+service:service.value,
+date:visitDate.value
+});
+this.reset();
+save();
+alert("Demo Patient ID: "+id);
+};
+
+show();
+</script>
 </body>
 </html>
