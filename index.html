@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHCC CONNECT</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f1f5f9;
+      color: #17324d;
+    }
+    header {
+      background: #087f5b;
+      color: white;
+      padding: 25px 15px;
+      text-align: center;
+    }
+    main {
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      margin: 12px 0;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px #0001;
+    }
+    button, select {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    button {
+      background: #087f5b;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>PHCC CONNECT</h1>
+    <p>Primary Healthcare Facility Management</p>
+    <select id="language" onchange="changeLanguage()">
+      <option value="en">English</option>
+      <option value="ha">Hausa</option>
+    </select>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2 id="welcome">Welcome to PHCC CONNECT</h2>
+      <p id="description">Connecting healthcare workers and facilities.</p>
+    </div>
+
+    <div class="card">
+      <h3 id="staff">Staff Management</h3>
+      <p>Register and manage healthcare workers.</p>
+    </div>
+
+    <div class="card">
+      <h3 id="attendance">Staff Attendance</h3>
+      <p>Monitor daily attendance.</p>
+    </div>
+
+    <div class="card">
+      <h3 id="reports">Daily and Weekly Reports</h3>
+      <p>Submit and manage facility reports.</p>
+    </div>
+  </main>
+
+  <script>
+    function changeLanguage() {
+      const lang = document.getElementById("language").value;
+      document.getElementById("welcome").textContent =
+        lang === "ha" ? "Barka da zuwa PHCC CONNECT" : "Welcome to PHCC CONNECT";
+      document.getElementById("description").textContent =
+        lang === "ha" ? "Haɗa ma'aikatan lafiya da cibiyoyin lafiya." : "Connecting healthcare workers and facilities.";
+      document.getElementById("staff").textContent =
+        lang === "ha" ? "Gudanar da Ma'aikata" : "Staff Management";
+      document.getElementById("attendance").textContent =
+        lang === "ha" ? "Halartar Aiki" : "Staff Attendance";
+      document.getElementById("reports").textContent =
+        lang === "ha" ? "Rahotannin Kullum da Mako-mako" : "Daily and Weekly Reports";
+    }
+  </script>
+</body>
+</html>
